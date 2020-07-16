@@ -1,26 +1,49 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import './app.scss';
+import { Layout } from './layouts/Layout';
+import { Nav } from './components/nav/Nav';
+import {connect} from 'react-redux'
+import {MainContext} from './context/MainContext'
+import { showMenu, hideMenu, scrollPage } from './redux/actionCreators/menu';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component{
+
+
+  render(){
+ 
+    window.addEventListener('scroll', this.props.scrollPage)
+
+
+    return(
+      <MainContext.Provider  value = {{state: this.props}}>
+          <div className = 'app'>
+            <Layout/>
+            <Nav/>
+          </div>
+     </MainContext.Provider> 
+    )
+    
+  }
 }
 
-export default App;
+
+  function mapStateToProps(state){
+    return{
+      showNav: state.showNav,
+      goMenu: state.goMenu,
+      scrollHeight: state.scrollHeight
+
+    }
+  }
+
+  function mapDispatchToProps(dispatch){
+    return{
+      showMenuHandler: ()=> dispatch(showMenu()),
+      hideMenuHandler: ()=> dispatch(hideMenu()),
+      scrollPage: ()=> dispatch(scrollPage())
+
+    }
+  }
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(App)

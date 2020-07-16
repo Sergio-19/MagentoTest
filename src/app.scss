@@ -1,0 +1,26 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&family=PT+Sans:wght@400;700&display=swap');
+@import'var';
+body{
+    margin: 0;
+    padding: 0;
+    background: $back_color;
+    // background: black;
+
+  h1, h3, h4, p{
+    font-family: 'Open Sans', sans-serif;
+    color: $text;
+  }
+
+  
+a{
+    font-family: 'PT Sans', sans-serif;
+}
+
+
+
+}
+
+.app{
+    position: relative;
+    overflow: hidden;
+}
