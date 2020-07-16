@@ -24,9 +24,7 @@ export const Nav = () =>{
 
 
     return(
-        <nav 
-        // style = {{position: height > 0 && height < 500 ? 'fixed' : 'absolute'}}
-        >
+        <nav>
             <div className = {cls.join(' ')}>
                 <div>
                   <ul>

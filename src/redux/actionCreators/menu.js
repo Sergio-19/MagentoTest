@@ -26,15 +26,7 @@ export function scrollPage(){
 
                 if(windowScroll < 500){
                     dispatch(backMenu())
-                }
-    }
-
-}
-
-
-    
-  
-
+                }}}
 
 export function getScrollHeight(height){
     return{
@@ -55,9 +47,3 @@ export function backMenu(){
         type: BACK_MENU
     }
 }
-
-    // function progress(event){
-    //   let windowScroll = document.body.scrollTop || document.documentElement.scrollTop
-    //   let windowHeight = document.documentElement.scrollHeight
-    //   console.log(`height: ${windowHeight} scroll: ${windowScroll}`)
-    // }
